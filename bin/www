@@ -5,7 +5,7 @@
  */
 
 var app = require('../server');
-var debug = require('debug')('full-stack-collab:server');
+var debug = require('debug')('animal-shelter:server');
 var http = require('http');
 
 /**
