@@ -5,57 +5,68 @@ module.exports = {
     create,
     index,
     show,
-    destroy
+    destroy,
+    edit
 }
 
-function newAnimal(req,res){
-    res.render('animals/new', {title: 'Add New Animal'})
+function newAnimal(req, res) {
+    res.render('animals/new', { title: 'Add New Animal' })
 }
 
-function create(req,res){
+function create(req, res) {
     Animal.create(req.body)
-    .then(function(newAnimal){
-        res.redirect('/animals/')
-    })
-    .catch(function (err) {
-        console.log(err)
-        res.redirect('/animals/')
-    })
+        .then(function (newAnimal) {
+            res.redirect('/animals/')
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.redirect('/animals/')
+        })
 }
 
-function index(req,res){
+function index(req, res) {
     Animal.find({})
-    .then(function(animals){
-        res.render('animals/index', {title: 'All Animals', animals})
+        .then(function (animals) {
+            res.render('animals/index', { title: 'All Animals', animals })
 
-    })
-    .catch(function (err) {
-        console.log(err)
-        res.redirect('/')
-    })
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.redirect('/')
+        })
 }
 
-function show(req,res){
+function show(req, res) {
     Animal.findById(req.params.id)
-    .then(function(animal){
-        res.render('animals/show', {title: "Animal", animal})
-    })
-    .catch(function (err) {
-        console.log(err)
-        res.redirect('/animals/')
-    })
+        .then(function (animal) {
+            res.render('animals/show', { title: "Animal", animal })
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.redirect('/animals/')
+        })
 }
 
-function destroy(req, res){
+function destroy(req, res) {
     Animal.findById(req.params.id)
+        .then(function (animal) {
+            animal.deleteOne(req.body)
+        }).then(function (animal) {
+            res.redirect('/animals')
 
+        }).catch(function (err) {
+            console.log(err)
+            res.redirect('/animals/')
+        })
+}
+
+function edit(req, res){
+    Animal.findById(req.params.id)
     .then(function(animal){
-     animal.deleteOne(req.body)
-    }).then(function(animal){
-        res.redirect('/animals')
-
+        res.render('animals/edit', {title:'Edit Animal Details', animal})
     }).catch(function (err) {
         console.log(err)
         res.redirect('/animals/')
     })
+
 }

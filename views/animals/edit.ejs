@@ -1,0 +1,23 @@
+<%- include('../partials/header', { title }) %>
+
+    <h1><%= title %></h1>
+
+    <form action="/animals/<%= animal.id %>?_method=PUT/" method="POST">
+
+        <label>Name:
+            <input type="string" name="name" value="<%=animal.name%>">
+        </label>
+        <label>Bio:
+            <input type="string" name="bio" value="<%=animal.bio%>">
+        </label>
+        <label>Age:
+            <input type="string" name="age" value="<%=animal.age%>">
+        </label>
+        <label>Breed:
+            <input type="string" name="breed" value="<%=animal.breed%>">
+            <br>
+        </label>
+        <button type="submit">Submit Details</button>
+    </form>
+
+<%- include('../partials/footer') %>
