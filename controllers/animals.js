@@ -4,7 +4,8 @@ module.exports = {
     new: newAnimal,
     create,
     index,
-    show
+    show,
+    destroy
 }
 
 function newAnimal(req,res){
@@ -26,7 +27,7 @@ function index(req,res){
     Animal.find({})
     .then(function(animals){
         res.render('animals/index', {title: 'All Animals', animals})
-        console.log(animals)
+
     })
     .catch(function (err) {
         console.log(err)
@@ -40,6 +41,20 @@ function show(req,res){
         res.render('animals/show', {title: "Animal", animal})
     })
     .catch(function (err) {
+        console.log(err)
+        res.redirect('/animals/')
+    })
+}
+
+function destroy(req, res){
+    Animal.findById(req.params.id)
+
+    .then(function(animal){
+     animal.deleteOne(req.body)
+    }).then(function(animal){
+        res.redirect('/animals')
+
+    }).catch(function (err) {
         console.log(err)
         res.redirect('/animals/')
     })

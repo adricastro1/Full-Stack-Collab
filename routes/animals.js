@@ -12,6 +12,8 @@ router.get('/', animalsCtrl.index)
 
 router.get('/:id', animalsCtrl.show)
 
+router.delete('/:id', animalsCtrl.destroy)
+
 
 
 
