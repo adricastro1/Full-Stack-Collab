@@ -1,24 +1,26 @@
 <%- include('../partials/header', { title }) %>
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Breed</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% animals.forEach(a => { %>
+<div id="table-animals">
+    <h1><%= title %></h1>
+    <table id="animals">
+        <thead>
             <tr>
-                <td> <%= a.name %></td>
-                <td> <%= a.breed %></td>
-                <td><a href="/animals/<%=a._id%>">Details</a></td>
+                <th>Name</th>
+                <th>Breed</th>
+                <th></th>
             </tr>
-            <% }) %>
-    </tbody>
-
-</table>
+        </thead>
+        <tbody>
+            <% animals.forEach(a => { %>
+                <tr>
+                    <td> <%= a.name %></td>
+                    <td> <%= a.breed %></td>
+                    <td><a href="/animals/<%=a._id%>">Details</a></td>
+                </tr>
+                <% }) %>
+        </tbody>
+    
+    </table>
+</div>
 
 
 <%- include('../partials/footer') %>

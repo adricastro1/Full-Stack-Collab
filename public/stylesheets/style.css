@@ -6,3 +6,31 @@ body {
 a {
   color: #00B7FF;
 }
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 5vh;
+}
+
+button {
+  margin-top: 10px;
+}
+
+#table-animals{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#animals,th,td {
+  width: 60%;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+  border-collapse: collapse;
+  border: 2px solid black;
+ 
+}
+

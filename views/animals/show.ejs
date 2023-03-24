@@ -1,20 +1,16 @@
 <%- include('../partials/header', { title }) %>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Breed</th>
-        </tr>
-    </thead>
-    <tbody>
-            <tr>
-                <td> <%= animal.name %></td>
-                <td> <%= animal.breed %></td>
-            </tr>
-    </tbody>
 
-</table>
+<section>
+    <h3>Name:</h3>
+    <p><%= animal.name %></p>
+    <h3>Bio:</h3>
+    <p><%= animal.bio %></p>
+    <h3>Age:</h3>
+    <p><%= animal.age %></p>
+    <h3>Breed:</h3>
+    <p><%= animal.breed %></p>
+</section>
 
 
 <%- include('../partials/footer') %>
