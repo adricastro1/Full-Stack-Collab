@@ -73,11 +73,12 @@ function edit(req, res){
 }
 
 function updateOne(req, res){
-    Animal.findById(req.params.id)
+    Animal.findByIdAndUpdate({_id:req.params.id}, req.body)
     .then(function(animal){
-        animal.save(req.body)
+        return animal.save()
     }).then(function(animal){
-    console.log(Animal)
+    console.log(animal)
+
         res.redirect('/animals/')
     })
     .catch(function (err) {
