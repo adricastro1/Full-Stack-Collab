@@ -3,7 +3,8 @@ const Animal = require('../models/Animal')
 module.exports = {
     new: newAnimal,
     create,
-    index
+    index,
+    show
 }
 
 function newAnimal(req,res){
@@ -29,5 +30,16 @@ function index(req,res){
     .catch(function (err) {
         console.log(err) 
         res.redirect('/')
+    })
+}
+
+function show(req,res){
+    Animal.findById(req.params.id)
+    .then(function(animal){
+        res.render('animals/show', {title: "Animal", animal})
+    })
+    .catch(function (err) {
+        console.log(err) 
+        res.redirect('/animals/')
     })
 }
