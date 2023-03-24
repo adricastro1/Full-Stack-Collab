@@ -4,5 +4,20 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
+    <form action="/animals" method="POST">
+        <label>Name:
+            <input type="string" name="name">
+        </label>
+        <label>Bio:
+            <input type="string" name="bio">
+        </label>
+        <label>Age:
+            <input type="number" name="age">
+        </label>
+        <label>Breed:
+            <input type="string" name="breed">
+        </label>
+
+    </form>
 
 <%- include('../partials/footer') %>
