@@ -17,7 +17,7 @@ function create(req,res){
         res.redirect('/animals/')
     })
     .catch(function (err) {
-        console.log(err)  
+        console.log(err)
         res.redirect('/animals/')
     })
 }
@@ -26,9 +26,10 @@ function index(req,res){
     Animal.find({})
     .then(function(animals){
         res.render('animals/index', {title: 'All Animals', animals})
+        console.log(animals)
     })
     .catch(function (err) {
-        console.log(err) 
+        console.log(err)
         res.redirect('/')
     })
 }
@@ -39,7 +40,7 @@ function show(req,res){
         res.render('animals/show', {title: "Animal", animal})
     })
     .catch(function (err) {
-        console.log(err) 
+        console.log(err)
         res.redirect('/animals/')
     })
 }

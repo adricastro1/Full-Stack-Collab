@@ -13,4 +13,6 @@ router.get('/', animalsCtrl.index)
 router.get('/:id', animalsCtrl.show)
 
 
+
+
 module.exports = router;
