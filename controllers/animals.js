@@ -6,7 +6,8 @@ module.exports = {
     index,
     show,
     destroy,
-    edit
+    edit,
+   updateOne,
 }
 
 function newAnimal(req, res) {
@@ -69,4 +70,18 @@ function edit(req, res){
         res.redirect('/animals/')
     })
 
+}
+
+function updateOne(req, res){
+    Animal.findById(req.params.id)
+    .then(function(animal){
+        animal.save(req.body)
+    }).then(function(animal){
+    console.log(Animal)
+        res.redirect('/animals/')
+    })
+    .catch(function (err) {
+        console.log(err)
+        res.redirect('/animals/')
+})
 }

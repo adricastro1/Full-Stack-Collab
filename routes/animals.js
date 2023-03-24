@@ -16,6 +16,8 @@ router.delete('/:id', animalsCtrl.destroy)
 
 router.get('/:id/edit', animalsCtrl.edit)
 
+router.put('/:id', animalsCtrl.updateOne)
+
 
 
 module.exports = router;
