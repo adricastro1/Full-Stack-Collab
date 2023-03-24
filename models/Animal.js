@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const animalSchema = new mongoose.Schema({
     name: String,
     bio: String,
-    age: Number,
-    breed: String
+    age: String,
+    breed: String,
 },{
     timestamps: true
 })

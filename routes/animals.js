@@ -6,6 +6,8 @@ const animalsCtrl = require("../controllers/animals")
 
 router.get('/new', animalsCtrl.new)
 
+router.post('/', animalsCtrl.create)
+
 
 // router.get('/', animalsCtrl.index)
 
