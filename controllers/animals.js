@@ -2,7 +2,8 @@ const Animal = require('../models/Animal')
 
 module.exports = {
     new: newAnimal,
-    create
+    create,
+    index
 }
 
 function newAnimal(req,res){
@@ -12,10 +13,21 @@ function newAnimal(req,res){
 function create(req,res){
     Animal.create(req.body)
     .then(function(newAnimal){
-        res.redirect('/animals/new')
+        res.redirect('/animals/')
     })
     .catch(function (err) {
         console.log(err)  
-        res.redirect('/animals/new')
+        res.redirect('/animals/')
+    })
+}
+
+function index(req,res){
+    Animal.find({})
+    .then(function(animals){
+        res.render('animals/index', {title: 'All Animals', animals})
+    })
+    .catch(function (err) {
+        console.log(err) 
+        res.redirect('/')
     })
 }

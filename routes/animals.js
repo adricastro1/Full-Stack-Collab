@@ -9,6 +9,6 @@ router.get('/new', animalsCtrl.new)
 router.post('/', animalsCtrl.create)
 
 
-// router.get('/', animalsCtrl.index)
+router.get('/', animalsCtrl.index)
 
 module.exports = router;
